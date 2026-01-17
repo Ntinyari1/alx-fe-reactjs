@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import WelcomeMessage from './components/WelcomeMessage' // 1. Added Import
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -16,6 +17,10 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
+      
+      {/* 2. Added WelcomeMessage Component here */}
+      <WelcomeMessage />
+
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
