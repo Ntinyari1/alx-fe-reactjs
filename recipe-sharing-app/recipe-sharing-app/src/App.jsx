@@ -1,6 +1,6 @@
 // src/App.jsx
-import AddRecipeForm from './components/AddRecipeForm';
-import RecipeList from './components/RecipeList';
+import AddRecipeForm from './components/AddRecipeForm. jsx';
+import RecipeList from './components/RecipeList. jsx';
 
 function App() {
   return (
