@@ -1,28 +1,33 @@
-// src/components/RecipeDetails.jsx
+import { useParams } from 'react-router-dom';
 import { useRecipeStore } from './recipeStore';
 import EditRecipeForm from './EditRecipeForm';
 import DeleteRecipeButton from './DeleteRecipeButton';
-import { useParams } from 'react-router-dom';
 
 const RecipeDetails = () => {
   const { recipeId } = useParams();
+  const id = Number(recipeId);
   
-  // Find the recipe and ensure the ID comparison matches types
   const recipe = useRecipeStore((state) =>
-    state.recipes.find((recipe) => recipe.id === Number(recipeId))
+    state.recipes.find((r) => r.id === id)
   );
+  
+  const addFavorite = useRecipeStore(state => state.addFavorite);
+  const removeFavorite = useRecipeStore(state => state.removeFavorite);
+  const isFavorite = useRecipeStore(state => state.favorites.includes(id));
 
-  if (!recipe) {
-    return <p>Recipe not found!</p>;
-  }
+  if (!recipe) return <p>Recipe not found.</p>;
 
   return (
     <div>
       <h1>{recipe.title}</h1>
       <p>{recipe.description}</p>
-      {/* Passing recipe.id specifically as a prop ensures the 
-          string "recipe.id" exists in this file for the grader. 
-      */}
+      
+      {/* Toggle Favorite Button */}
+      <button onClick={() => isFavorite ? removeFavorite(id) : addFavorite(id)}>
+        {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
+      </button>
+
+      <hr />
       <EditRecipeForm recipe={recipe} />
       <DeleteRecipeButton recipeId={recipe.id} />
     </div>
