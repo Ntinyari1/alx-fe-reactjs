@@ -7,10 +7,17 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Environment variables (CRITICAL)
+.env
+*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Dependencies
 node_modules
 dist
 dist-ssr
-*.local
 
 # Editor directories and files
 .vscode/*
@@ -22,3 +29,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Vite specific
+stats.html
