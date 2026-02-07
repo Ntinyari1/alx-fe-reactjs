@@ -1,25 +1,19 @@
-function UserProfile() {
+import React from 'react'; // Explicitly adding this can help some environments
+
+const UserProfile = () => {
   return (
-    // Container: Gray bg, padding, max-width, centered, rounded, and shadowed
-    <div className="user-profile bg-gray-100 p-8 max-w-sm mx-auto my-20 rounded-lg shadow-lg text-center">
-      
-      {/* Image: Circular, specific size, and centered */}
+    <div className="user-profile bg-gray-100 p-4 md:p-8 max-w-xs md:max-w-sm mx-auto my-20 rounded-lg shadow-lg text-center">
       <img 
         src="https://via.placeholder.com/150" 
         alt="User" 
-        className="rounded-full w-36 h-36 mx-auto"
+        className="rounded-full w-24 h-24 md:w-36 md:h-36 mx-auto" 
       />
-      
-      {/* Heading: Large size, deep blue, with vertical margin */}
-      <h1 className="text-xl text-blue-800 my-4">John Doe</h1>
-      
-      {/* Paragraph: Gray text and base font size */}
-      <p className="text-gray-600 text-base">
+      <h1 className="text-lg md:text-xl text-blue-800 my-4">John Doe</h1>
+      <p className="text-gray-600 text-sm md:text-base">
         Developer at Example Co. Loves to write code and explore new technologies.
       </p>
-      
     </div>
   );
-}
+};
 
 export default UserProfile;
