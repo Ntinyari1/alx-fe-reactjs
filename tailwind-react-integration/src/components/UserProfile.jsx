@@ -1,8 +1,8 @@
-import React from 'react'; // Explicitly adding this can help some environments
+import React from 'react';
 
 const UserProfile = () => {
   return (
-    <div className="user-profile bg-gray-100 p-4 md:p-8 max-w-xs md:max-w-sm mx-auto my-20 rounded-lg shadow-lg text-center">
+    <div className="user-profile bg-gray-100 p-4 sm:p-4 md:p-8 max-w-xs md:max-w-sm mx-auto my-20 rounded-lg shadow-lg text-center">
       <img 
         src="https://via.placeholder.com/150" 
         alt="User" 
