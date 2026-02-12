@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'; // Import Link for navigation
 import recipeData from '../data.json';
 
 const HomePage = () => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    // In a real app, this would be an API fetch. 
-    // Here we use the local JSON data directly.
     setRecipes(recipeData);
   }, []);
 
@@ -16,7 +15,7 @@ const HomePage = () => {
         Recipe Sharing Platform
       </h1>
       
-      {/* Responsive Grid Setup */}
+      {/* Step 4: Responsive Grid Layout */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {recipes.map((recipe) => (
           <div 
@@ -31,9 +30,14 @@ const HomePage = () => {
             <div className="p-5">
               <h2 className="text-xl font-semibold text-gray-800 mb-2">{recipe.title}</h2>
               <p className="text-gray-600 text-sm line-clamp-2">{recipe.summary}</p>
-              <button className="mt-4 text-orange-600 font-medium hover:text-orange-700">
-                View Recipe →
-              </button>
+              
+              {/* Wrap the button or the whole card logic in a Link */}
+              <Link 
+                to={`/recipe/${recipe.id}`} 
+                className="mt-4 inline-block text-orange-600 font-medium hover:text-orange-700"
+              >
+                View Details →
+              </Link>
             </div>
           </div>
         ))}
