@@ -3,18 +3,24 @@
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://images.unsplash.com/photo-1612874742237-6526221588e3?q=80&w=400"
+    "image": "https://images.unsplash.com/photo-1612874742237-6526221588e3?q=80&w=400",
+    "ingredients": ["200g Spaghetti", "100g Guanciale", "2 Large Eggs", "50g Pecorino Romano", "Black Pepper"],
+    "instructions": "1. Boil pasta in salted water. 2. Fry guanciale until crisp. 3. Whisk eggs and cheese in a bowl. 4. Toss pasta with guanciale, remove from heat, and quickly stir in egg mixture."
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
     "summary": "Grilled chicken cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=400"
+    "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=400",
+    "ingredients": ["500g Chicken Thighs", "1 cup Yogurt", "2 tbsp Garam Masala", "400ml Tomato Puree", "100ml Heavy Cream"],
+    "instructions": "1. Marinate chicken in yogurt and spices for 1 hour. 2. Grill chicken until charred. 3. Simmer tomato puree with spices. 4. Add chicken and cream, then simmer for 10 minutes."
   },
   {
     "id": 3,
     "title": "Classic Beef Burger",
     "summary": "Juicy beef patty with fresh lettuce, tomato, and our secret house sauce.",
-    "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=400"
+    "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=400",
+    "ingredients": ["200g Ground Beef", "1 Burger Bun", "1 slice Cheddar Cheese", "Lettuce and Tomato", "Secret Sauce"],
+    "instructions": "1. Season beef and form a patty. 2. Grill for 4 minutes per side. 3. Toast the bun. 4. Assemble with cheese, vegetables, and sauce."
   }
 ]
