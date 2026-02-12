@@ -1,25 +1,22 @@
-import React, { useState } from 'react'; // Remove useEffect
+import React, { useState, useEffect } from 'react';
 import recipeData from '../data.json';
 
-interface Recipe {
-  id: number;
-  title: string;
-  summary: string;
-  image: string;
-}
+const HomePage = () => {
+  const [recipes, setRecipes] = useState([]);
 
-const HomePage: React.FC = () => {
-  // Initialize state directly with the imported data
-  const [recipes] = useState<Recipe[]>(recipeData as Recipe[]);
+  useEffect(() => {
+    // In a real app, this would be an API fetch. 
+    // Here we use the local JSON data directly.
+    setRecipes(recipeData);
+  }, []);
 
-  // useEffect is no longer needed for static data loading
-  
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold text-center mb-10 text-gray-800">
         Recipe Sharing Platform
       </h1>
       
+      {/* Responsive Grid Setup */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {recipes.map((recipe) => (
           <div 
