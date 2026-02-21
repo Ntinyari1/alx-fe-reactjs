@@ -1,7 +1,6 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 
-// Function to fetch posts from the API
 const fetchPosts = async () => {
   const response = await fetch('https://jsonplaceholder.typicode.com/posts');
   if (!response.ok) {
@@ -11,26 +10,37 @@ const fetchPosts = async () => {
 };
 
 const PostsComponent = () => {
-  // useQuery(UniqueKey, FetchFunction)
-  const { data, error, isLoading, isError, refetch } = useQuery('posts', fetchPosts);
+  const { data, error, isLoading, isError, refetch } = useQuery(
+    'posts', 
+    fetchPosts, 
+    {
+      // The data is considered "fresh" for 5 minutes (won't re-fetch automatically)
+      staleTime: 300000, 
+      
+      // The data stays in the cache for 10 minutes after being unused
+      cacheTime: 600000, 
+      
+      // Prevents automatic re-fetching when the user switches browser tabs
+      refetchOnWindowFocus: false, 
+      
+      // Useful for pagination: shows old data while fetching new data
+      keepPreviousData: true, 
+    }
+  );
 
-  // Handle Loading State
   if (isLoading) return <p>Loading posts...</p>;
-
-  // Handle Error State
   if (isError) return <p>Error loading data: {error.message}</p>;
 
   return (
     <div>
-      <h2>Fetched Posts</h2>
-      {/* Step 3: Button to trigger manual refetch */}
+      <h2>Fetched Posts (Optimized)</h2>
       <button onClick={() => refetch()} style={{ marginBottom: '20px' }}>
-        Refetch Data
+        Force Refetch
       </button>
 
       <ul>
         {data.slice(0, 10).map((post) => (
-          <li key={post.id} style={{ marginBottom: '15px' }}>
+          <li key={post.id} style={{ marginBottom: '15px', borderBottom: '1px solid #eee' }}>
             <h4 style={{ margin: '0' }}>{post.title}</h4>
             <p>{post.body}</p>
           </li>
