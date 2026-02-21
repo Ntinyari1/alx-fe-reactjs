@@ -1,21 +1,28 @@
-import { Link, Outlet } from 'react-router-dom';
+import React from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
+
+// Simple sub-components for the nested views
+const ProfileDetails = () => <div><h3>Profile Details</h3><p>User-specific information goes here.</p></div>;
+const ProfileSettings = () => <div><h3>Profile Settings</h3><p>Manage your account preferences.</p></div>;
 
 const Profile = () => {
   return (
-    <div>
+    <div style={{ padding: '20px', border: '1px solid #ccc' }}>
       <h2>User Profile</h2>
-      <nav>
-        <Link to="details">Profile Details</Link> | {" "}
-        <Link to="settings">Settings</Link>
+      <nav style={{ marginBottom: '20px' }}>
+        <Link to="details">View Details</Link> |{" "}
+        <Link to="settings">Account Settings</Link>
       </nav>
+
       <hr />
-      {/* Nested routes render here */}
-      <Outlet />
+
+      {/* Descendant Routes inside the Profile component */}
+      <Routes>
+        <Route path="details" element={<ProfileDetails />} />
+        <Route path="settings" element={<ProfileSettings />} />
+      </Routes>
     </div>
   );
 };
-
-export const ProfileDetails = () => <h3>Profile Details Section</h3>;
-export const ProfileSettings = () => <h3>Profile Settings Section</h3>;
 
 export default Profile;
